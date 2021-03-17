@@ -14,7 +14,6 @@ public class City {
     // connects the road the city's connected road array
     public void connect(Road r) {
         roads[numRoads++] = r;
-
     }
 
     // returns the city closest to the current one
@@ -34,11 +33,9 @@ public class City {
                 minLengthIndex = i;
             }
         }
-
         // returns the closest city to the current one
         return roads[minLengthIndex].getCity1() == this ? roads[minLengthIndex].getCity2()
                 : roads[minLengthIndex].getCity1();
-
     }
 
     // returns the city name

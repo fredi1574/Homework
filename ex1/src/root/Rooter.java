@@ -20,10 +20,8 @@ public class Rooter {
         double two = x / one;
 
         while (Math.abs(one - two) >= precision) {
-
             if (one == two)
                 return one;
-
             one = (one + two) / 2;
             two = x / one;
         }

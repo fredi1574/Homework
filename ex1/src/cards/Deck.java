@@ -22,16 +22,16 @@ public class Deck {
     // 2nd deck constructor, creates a new deck by taking 'num' cards from the top
     // of another existing deck
     public Deck(Deck from, int num) {
-        int numToTake = num;
         if (from.getNumCards() < num) {
             deck = new Card[from.deck.length];
             emptyDeck(from, 0);
         } else {
             deck = new Card[num];
             int i = 0;
+            int numToTake = num;
             while (numToTake > 0) {
                 deck[i++] = from.takeOne();
-                numOfCards++;
+                this.numOfCards++;
                 numToTake--;
             }
         }

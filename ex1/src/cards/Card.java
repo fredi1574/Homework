@@ -33,7 +33,7 @@ public class Card {
             case 3:
                 return num + "S";
         }
-        return null;
+        throw new IllegalStateException("Invalid Card");
     }
 
     //compares two cards' values
