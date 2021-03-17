@@ -6,11 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="e198b0c3-d996-46dc-8f4f-918784644ef5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cards/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/cards/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cards/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/cards/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/cities/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/cities/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/library/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/library/Author.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/library/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/library/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/library/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/library/Library.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/root/Rooter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/root/Rooter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cards/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cities/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cities/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/library/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/Rooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/Rooter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/תרגיל 1.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RunManager" selected="Application.CardsTester">
     <configuration name="CardsTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -142,7 +149,6 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="deck" language="JAVA" />
-        <watch expression="deck[i].compareTo(deck[i-1])" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

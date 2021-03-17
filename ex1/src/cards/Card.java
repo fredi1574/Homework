@@ -37,28 +37,13 @@ public class Card {
     }
 
     //compares two cards' values
-    public int compareTo(Card other) {
-        //returns 0 if the cards are identical
-        if (num == other.num && suit == other.suit)
-            return 0;
-
-
-        //compares cards with identical suits by comparing their numerical values
-        if (getSuit() == other.getSuit()) {
-            if (getNum() > other.getNum())
-                return 1;
-            else
-                return -1;
+    public int compareTo(Card other) {///fix this
+        if (num == other.num) {
+            if (suit == other.suit) {
+                return 0;
+            }
+            return Math.max(suit, other.suit) == suit ? 1 : -1;
         }
-        //compares cards with identical numbers by comparing suit value
-        if (getNum() == other.getNum()) {
-            if (getSuit() > other.getSuit())
-                return 1;
-            else
-                return -1;
-        }
-        if (getNum() > other.getNum())
-            return 1;
-        return -1;
+        return Math.max(num, other.num) == num ? 1 : -1;
     }
 }

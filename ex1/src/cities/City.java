@@ -19,23 +19,19 @@ public class City {
     // returns the city closest to the current one
     public City nearestCity() {
         // if the city is not connected to any road returns a null
-        if (numRoads == 0)
+        if (numRoads == 0) {
             return null;
-
-        int minLengthIndex = 0; // stores the index of the nearest city
-        int minLength = roads[0].getLength(); // stores the length of the nearest city
-
-        for (int i = 0; i < numRoads; i++) {
-
+        }
+        Road minRoad = roads[0];
+        for (int i = 1; i < numRoads; i++) {
             // updates the length and the index of a newly found nearest city
-            if (roads[i].getLength() < minLength) {
-                minLength = roads[i].getLength();
-                minLengthIndex = i;
+            if (roads[i].getLength() < minRoad.getLength()) {
+                minRoad = roads[i];
             }
         }
         // returns the closest city to the current one
-        return roads[minLengthIndex].getCity1() == this ? roads[minLengthIndex].getCity2()
-                : roads[minLengthIndex].getCity1();
+        return minRoad.getCity1() == this ? minRoad.getCity2()
+                : minRoad.getCity1();
     }
 
     // returns the city name

@@ -22,38 +22,31 @@ public class Deck {
     // 2nd deck constructor, creates a new deck by taking 'num' cards from the top
     // of another existing deck
     public Deck(Deck from, int num) {
-        if (from.getNumCards() < num) {
-            deck = new Card[from.deck.length];
-            emptyDeck(from, 0);
+        if (Math.min(from.numOfCards, num) == from.numOfCards) {
+            deck = new Card[from.numOfCards];
+            emptyDeck(from, 0, from.numOfCards);
         } else {
             deck = new Card[num];
-            int i = 0;
-            int numToTake = num;
-            while (numToTake > 0) {
-                deck[i++] = from.takeOne();
-                this.numOfCards++;
-                numToTake--;
-            }
+            emptyDeck(from, 0, num);
         }
     }
 
     // 3rd deck constructor, creates a new deck combined from two existing decks
     public Deck(Deck first, Deck second) {
+        if (first.numOfCards == 0 && second.numOfCards == 0) {
+            throw new IllegalStateException("Error! Both decks are empty");
+        }
         deck = new Card[first.getNumCards() + second.getNumCards()];
-
         // takes cards by alternating between the two existing decks.
-        for (int i = 0; i < deck.length - 2 || deck.length > getNumCards(); i += 2) {
-
+        for (int i = 0; i < deck.length - 2 || deck.length > numOfCards; i += 2) {
             // if deck 2 is empty, the remaining cards are taken from deck 1
             if (second.getNumCards() == 0) {
-                numOfCards += first.getNumCards();
-                emptyDeck(first, i);
-
+                numOfCards += first.numOfCards;
+                emptyDeck(first, i, first.numOfCards);
                 // if deck 1 is empty, the remaining cards are taken from deck 2
             } else if (first.getNumCards() == 0) {
-                numOfCards += second.getNumCards();
-                emptyDeck(second, i);
-
+                numOfCards += second.numOfCards;
+                emptyDeck(second, i, second.numOfCards);
                 //if both decks still have cards, takes one from each
             } else {
                 deck[i] = first.takeOne();
@@ -64,9 +57,11 @@ public class Deck {
     }
 
     // takes all of the remaining cards from the target deck and puts them in the current deck
-    private void emptyDeck(Deck targetDeck, int i) {
-        while (targetDeck.getNumCards() != 0) {
+    private void emptyDeck(Deck targetDeck, int i, int cardsLeft) {
+        while (cardsLeft > 0) {
             deck[i++] = targetDeck.takeOne();
+            numOfCards++;
+            cardsLeft--;
         }
     }
 
@@ -80,8 +75,8 @@ public class Deck {
         if (deck.length == 0) {
             return null;
         }
-        Card helpCard = deck[getNumCards() - 1];
-        deck[getNumCards() - 1] = null;
+        Card helpCard = deck[numOfCards - 1];
+        deck[numOfCards - 1] = null;
         numOfCards--;
         return helpCard;
     }
@@ -89,19 +84,18 @@ public class Deck {
     // returns a formatted string of all the cards in the chosen deck
     public String toString() {
         String str = "[";
-        for (int i = 0; i < getNumCards() - 1; i++) {
-            str += deck[i].toString() + ", ";
+        for (int i = 0; i < numOfCards - 1; i++) {
+            str += deck[i] + ", ";
         }
-        return str + deck[getNumCards() - 1].toString() + "]";
+        return str + deck[numOfCards - 1] + "]";
     }
-
 
     // sorts the chosen deck in ascending order
     public void sort() {
         Card helpCard;
 
-        for (int i = 0; i < getNumCards() - 1; i++)
-            for (int j = 0; j < getNumCards() - i - 1; j++)
+        for (int i = 0; i < numOfCards - 1; i++)
+            for (int j = 0; j < numOfCards - i - 1; j++)
                 if (deck[j].compareTo(deck[j + 1]) > 0) {
                     helpCard = deck[j];
                     deck[j] = deck[j + 1];
