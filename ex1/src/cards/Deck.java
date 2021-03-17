@@ -36,16 +36,14 @@ public class Deck {
         if (first.numOfCards == 0 && second.numOfCards == 0) {
             throw new IllegalStateException("Error! Both decks are empty");
         }
-        deck = new Card[first.getNumCards() + second.getNumCards()];
+        deck = new Card[first.numOfCards + second.numOfCards];
         // takes cards by alternating between the two existing decks.
         for (int i = 0; i < deck.length - 2 || deck.length > numOfCards; i += 2) {
             // if deck 2 is empty, the remaining cards are taken from deck 1
             if (second.getNumCards() == 0) {
-                numOfCards += first.numOfCards;
                 emptyDeck(first, i, first.numOfCards);
                 // if deck 1 is empty, the remaining cards are taken from deck 2
             } else if (first.getNumCards() == 0) {
-                numOfCards += second.numOfCards;
                 emptyDeck(second, i, second.numOfCards);
                 //if both decks still have cards, takes one from each
             } else {
